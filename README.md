@@ -10,6 +10,11 @@ https://dtflaneur.wordpress.com/2015/10/02/installing-hadoop-on-mac-osx-el-capit
 http://hanslen.me/2018/01/19/How-to-install-Hadoop-on-macOS-High-Sierra/
 
 ### Hadoop Command for Single Node Local Mode:
+### Port Information:
+#### SecondaryNameNode: localhost:9868
+#### DataNode: localhost:9864
+#### NameNode: localhost:9870
+
 ### Input 
 hdfs dfs -mkdir -p /user/gabriel/daily
 ### Move files into input folder

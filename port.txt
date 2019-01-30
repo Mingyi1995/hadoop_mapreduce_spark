@@ -1,0 +1,3 @@
+SecondaryNameNode: localhost:9868
+DataNode: localhost:9864
+NameNode: localhost:9870

@@ -2,43 +2,53 @@
 
 import sys
 import csv
-# initialize the iteration
-iteration = 0
-# nullify all the values
-currentCountry = None
-previousCountry = None
-currentFx = None
-percentChange = None
-currentKey = None
 
-fxMap = []
 
-with open(sys.argv[1], 'r') as file:
-    for line in file:
-        if line.startswith("Date"):
-            continue
-        else:
-            words = line.strip().split(',')
-            if len(words) != 3 or len(words[2]) == 0:
-                continue
-            else:
-                currentCountry = words[1]
-                currentFx = float(words[2])
+class Mapper():
+    # mapper class initialization
+    def __init__(self, filename):
+        self.iteration = 0
+        self.currentCountry = None
+        self.previousCountry = None
+        self.currentFx = None
+        self.percentChange = None
+        self.currentKey = None
+        self.fxMap = []
+        self.f = filename
 
-                if currentCountry != previousCountry:
-                    previousCountry = currentCountry
-                    previousFx = currentFx
-                    previousLine = line
+    def map(self):
+        # mapping from reading
+        with open(self.f, 'r') as file:
+            for line in file:
+                if line.startswith("Date"):
                     continue
+                else:
+                    words = line.strip().split(',')
+                    if len(words) != 3 or len(words[2]) == 0:
+                        continue
+                    else:
+                        self.currentCountry = words[1]
+                        self.currentFx = float(words[2])
 
-                elif currentCountry == previousCountry:
-                    percentChange = ((currentFx - previousFx) / previousFx) * 100.00
-                    currentKey = (currentCountry, percentChange)
-                    fxMap.append(currentKey)
+                        if self.currentCountry != self.previousCountry:
+                            self.previousCountry = self.currentCountry
+                            self.previousFx = self.currentFx
+                            self.previousLine = line
+                            continue
 
-                previousCountry = currentCountry
-                previousFx = currentFx
-                previousLine = line
+                        elif self.currentCountry == self.previousCountry:
+                            self.percentChange = ((self.currentFx - self.previousFx) / self.previousFx) * 100.00
+                            self.currentKey = (self.currentCountry, self.percentChange)
+                            self.fxMap.append(self.currentKey)
 
-    for i in sorted(fxMap):
-        print("%-20s - %f" % (i[0], i[1]))
+                        self.previousCountry = self.currentCountry
+                        self.previousFx = self.currentFx
+                        self.previousLine = line
+
+            for i in sorted(self.fxMap):
+                print("%s - %f%%" % (i[0], i[1]))
+
+
+if __name__ == '__main__':
+    mp = Mapper(sys.argv[1])
+    mp.map()

@@ -16,6 +16,7 @@ class Mapper():
         self.fxMap = []
         self.f = filename
 
+
     def map(self):
         # mapping from reading
         with open(self.f, 'r') as file:
@@ -46,7 +47,7 @@ class Mapper():
                         self.previousLine = line
 
             for i in sorted(self.fxMap):
-                print("%s - %f%%" % (i[0], i[1]))
+                print("%s - %.2f%%" % (i[0], i[1]))
 
 
 if __name__ == '__main__':

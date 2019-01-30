@@ -1,4 +1,4 @@
-## Tutorial materials for hadoop and mapreduce distributed system
+## Tutorial Materials For Hadoop and Mapreduce Distributed System
 
 ### Toy project
 A project that helps people get a general sense of what mapreduce does

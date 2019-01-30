@@ -1,6 +1,9 @@
 ## Tutorial materials for hadoop and mapreduce distributed system
 
-### toy project
-a project that helps people get a general sense of what mapreduce does
-### currency project
-a simple hands on project about mapreduce + hadoop
+### Toy project
+A project that helps people get a general sense of what mapreduce does
+### Currency project
+A simple hands on project about mapreduce + hadoop
+
+### Hadoop Install:
+https://dtflaneur.wordpress.com/2015/10/02/installing-hadoop-on-mac-osx-el-capitan/

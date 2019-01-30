@@ -19,15 +19,15 @@ class Mapper():
 
     def map(self):
         # mapping from reading
-        with open(self.f, 'r') as file:
-            for line in file:
-                if line.startswith("Date"):
-                    continue
+        file = sys.stdin
+        for line in file:
+            if line.startswith("Date"):
+                continue
+            else:
+                words = line.strip().split(',')
+                if len(words) != 3 or len(words[2]) == 0:
+                     continue
                 else:
-                    words = line.strip().split(',')
-                    if len(words) != 3 or len(words[2]) == 0:
-                        continue
-                    else:
                         self.currentCountry = words[1]
                         self.currentFx = float(words[2])
 

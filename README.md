@@ -23,3 +23,5 @@ hdfs dfs -put /Users/gabriel/desktop/hadoop_mapreduce/currency_project/* daily
 hdfs dfs -ls daily
 ### Run job
 bin/hadoop jar /usr/local/Cellar/hadoop/3.1.1/libexec/share/hadoop/tools/lib/hadoop-*streaming*.jar -file daily/mapper.py -mapper daily/mapper.py -file daily/reducer.py  -reducer daily/reducer.py  -input daily/daily.csv -output daily/output
+### Observe the output
+hdfs dfs -cat daily/output/*
